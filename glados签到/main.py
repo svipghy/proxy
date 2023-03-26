@@ -1,3 +1,6 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*
+
 import requests
 import json
 
@@ -8,9 +11,12 @@ webhook = 'xxxxxxx'
 
 def main():
     checkin_res = checkin()
-    state_res = get_state()
-    content = f'ghy,当前天数：{state_res} \n签到结果：{checkin_res}'
-    send_dingtalk(content)
+    if checkin_res == "Please Try Tomorrow":
+        print("签到失败，请明天再试！")
+    else:
+        state_res = get_state()
+        content = f'高宏宇,当前天数：{state_res} \n签到结果：{checkin_res}'
+        send_dingtalk(content)
 
 def checkin():
     url = 'https://glados.rocks/api/user/checkin'
