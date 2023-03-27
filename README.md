@@ -23,7 +23,7 @@ echo "------------TLY签到---------------"
 ### 定时任务
 ```
 # 定时签到任务
-0 9,15 * * * /usr/bin/bash /home/ghy/bash.sh >> /home/ghy/log/checkin_`date +%Y%m%d_%T`.log
+0 9,12,18 * * * /usr/bin/bash /home/ghy/bash.sh >> /home/ghy/log/checkin_$(date +""\%Y-\%m-\%d_\%T"").log 2>&1
 
 # 每隔15天删除30天以上的签到日志文件
 * * */15 * *  /usr/bin/find /home/ghy/log/ -mtime +30 -name "*.log" -exec rm -rf {} \;
