@@ -28,3 +28,25 @@ echo "------------TLY签到---------------"
 # 每隔15天删除30天以上的签到日志文件
 * * */15 * *  /usr/bin/find /home/ghy/log/ -mtime +30 -name "*.log" -exec rm -rf {} \;
 ```
+
+### 安装Python3
+```
+yum install python3
+```
+
+### pip安装request模块
+```
+pip3 install requests -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com
+```
+
+### 查看pip已经安装的模块
+```
+pip3 list
+certifi (2022.12.7)
+charset-normalizer (2.0.12)
+idna (3.4)
+pip (9.0.3)
+requests (2.27.1)
+setuptools (39.2.0)
+urllib3 (1.26.15)
+```
